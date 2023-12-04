@@ -82,10 +82,10 @@ Partial Class subject
         ' 
         ' backsubjectbtn
         ' 
-        backsubjectbtn.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        backsubjectbtn.Location = New Point(11, 12)
+        backsubjectbtn.Font = New Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        backsubjectbtn.Location = New Point(28, 12)
         backsubjectbtn.Name = "backsubjectbtn"
-        backsubjectbtn.Size = New Size(79, 29)
+        backsubjectbtn.Size = New Size(97, 35)
         backsubjectbtn.TabIndex = 0
         backsubjectbtn.Text = "Back"
         backsubjectbtn.UseVisualStyleBackColor = True
@@ -94,7 +94,8 @@ Partial Class subject
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point)
-        Label5.Location = New Point(206, 67)
+        Label5.ForeColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
+        Label5.Location = New Point(28, 73)
         Label5.Name = "Label5"
         Label5.Size = New Size(387, 51)
         Label5.TabIndex = 3
@@ -528,10 +529,10 @@ Partial Class subject
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.Image = My.Resources.Resources.cmi_building
+        PictureBox1.Image = My.Resources.Resources.cmicmicmi1
         PictureBox1.Location = New Point(0, 0)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(2000, 1060)
+        PictureBox1.Size = New Size(2000, 1100)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 7
         PictureBox1.TabStop = False

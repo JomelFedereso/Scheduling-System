@@ -24,6 +24,15 @@ Public Class subject
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue
 
+        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox4.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox5.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox6.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox7.DropDownStyle = ComboBoxStyle.DropDownList
+        combounit.DropDownStyle = ComboBoxStyle.DropDownList
+        xection.DropDownStyle = ComboBoxStyle.DropDownList
 
 
     End Sub
@@ -375,6 +384,10 @@ Public Class subject
     End Sub
 
     Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
+
+    End Sub
+
+    Private Sub PictureBox1_Click_1(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
 End Class

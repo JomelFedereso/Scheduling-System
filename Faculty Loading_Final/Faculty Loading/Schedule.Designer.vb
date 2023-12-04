@@ -56,6 +56,7 @@ Partial Class Schedule
         Columntime = New DataGridViewTextBoxColumn()
         Columnroom = New DataGridViewTextBoxColumn()
         ErrorProvider1 = New ErrorProvider(components)
+        PictureBox3 = New PictureBox()
         savebtn = New Button()
         ExportToExcelButton = New Button()
         Label5 = New Label()
@@ -75,13 +76,12 @@ Partial Class Schedule
         ComboBox5 = New ComboBox()
         GroupBox2 = New GroupBox()
         PictureBox1 = New PictureBox()
-        PictureBox3 = New PictureBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox2.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' DataGridView1
@@ -310,6 +310,17 @@ Partial Class Schedule
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
+        ' PictureBox3
+        ' 
+        ErrorProvider1.SetIconAlignment(PictureBox3, ErrorIconAlignment.BottomRight)
+        PictureBox3.Image = My.Resources.Resources.cmicmicmi1
+        PictureBox3.Location = New Point(-8, -6)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(2100, 1200)
+        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox3.TabIndex = 20
+        PictureBox3.TabStop = False
+        ' 
         ' savebtn
         ' 
         savebtn.Anchor = AnchorStyles.Right
@@ -338,10 +349,11 @@ Partial Class Schedule
         ' 
         Label5.Anchor = AnchorStyles.Right
         Label5.AutoSize = True
-        Label5.Font = New Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point)
+        Label5.Font = New Font("Arial Narrow", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.ForeColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
         Label5.Location = New Point(1578, 528)
         Label5.Name = "Label5"
-        Label5.Size = New Size(159, 32)
+        Label5.Size = New Size(148, 33)
         Label5.TabIndex = 12
         Label5.Text = "Total Units: "
         ' 
@@ -360,7 +372,7 @@ Partial Class Schedule
         ' 
         ' Button3
         ' 
-        Button3.Font = New Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point)
+        Button3.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         Button3.Location = New Point(12, 22)
         Button3.Name = "Button3"
         Button3.Size = New Size(87, 40)
@@ -374,7 +386,7 @@ Partial Class Schedule
         Label4.AutoSize = True
         Label4.Font = New Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.ForeColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
-        Label4.Location = New Point(58, 82)
+        Label4.Location = New Point(58, 74)
         Label4.Name = "Label4"
         Label4.Size = New Size(358, 51)
         Label4.TabIndex = 18
@@ -503,7 +515,7 @@ Partial Class Schedule
         GroupBox2.Controls.Add(label3)
         GroupBox2.Controls.Add(Label2)
         GroupBox2.Controls.Add(ComboBox2)
-        GroupBox2.Location = New Point(83, 152)
+        GroupBox2.Location = New Point(76, 331)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(307, 584)
         GroupBox2.TabIndex = 17
@@ -513,22 +525,12 @@ Partial Class Schedule
         ' 
         PictureBox1.Anchor = AnchorStyles.None
         PictureBox1.Image = My.Resources.Resources.cmilogo_removebg_preview__2_
-        PictureBox1.Location = New Point(114, 742)
+        PictureBox1.Location = New Point(113, 128)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(245, 197)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 19
         PictureBox1.TabStop = False
-        ' 
-        ' PictureBox3
-        ' 
-        PictureBox3.Image = My.Resources.Resources.cmicmicmi1
-        PictureBox3.Location = New Point(-8, -6)
-        PictureBox3.Name = "PictureBox3"
-        PictureBox3.Size = New Size(2100, 1200)
-        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox3.TabIndex = 20
-        PictureBox3.TabStop = False
         ' 
         ' Schedule
         ' 
@@ -553,10 +555,10 @@ Partial Class Schedule
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         GroupBox2.ResumeLayout(False)
         GroupBox2.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub

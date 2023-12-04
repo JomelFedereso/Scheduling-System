@@ -165,7 +165,7 @@ Partial Class Form1
         AutoScaleDimensions = New SizeF(15F, 37F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Control
-        ClientSize = New Size(1182, 1055)
+        ClientSize = New Size(1445, 1055)
         Controls.Add(GroupBox1)
         Controls.Add(PictureBox2)
         Font = New Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point)

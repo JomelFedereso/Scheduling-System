@@ -19,11 +19,18 @@ Public Class Schedule
 
         Label4.Parent = PictureBox3
         Label4.BackColor = Color.Transparent
-
+        Label5.Parent = PictureBox3
+        Label5.BackColor = Color.Transparent
         Label6.Parent = PictureBox3
         Label6.BackColor = Color.Transparent
         PictureBox1.Parent = PictureBox3
         PictureBox1.BackColor = Color.Transparent
+
+        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox4.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox5.DropDownStyle = ComboBoxStyle.DropDownList
 
     End Sub
 
@@ -414,31 +421,61 @@ Public Class Schedule
         Dim excelWorksheet As Microsoft.Office.Interop.Excel.Worksheet = Nothing
 
         Try
-            ' Initialize Excel application
+
             excelApp = New Microsoft.Office.Interop.Excel.Application()
             excelApp.Visible = True
             excelWorkbook = excelApp.Workbooks.Add()
             excelWorksheet = TryCast(excelWorkbook.ActiveSheet, Microsoft.Office.Interop.Excel.Worksheet)
 
-            ' Populate the first row with time values (8:00 AM to 5:30 PM)
-            Dim startTime As New TimeSpan(7, 30, 0) ' Start at 8:00 AM
-            For timeIndex As Integer = 2 To 21 ' 20 represents 5:30 PM, as it starts from 0
+
+            Dim startTime As New TimeSpan(7, 30, 0)
+            For timeIndex As Integer = 2 To 21
                 Dim currentTime As TimeSpan = startTime.Add(New TimeSpan(0, 30 * (timeIndex - 1), 0))
                 excelWorksheet.Cells(timeIndex, 1) = currentTime.ToString("hh\:mm")
                 excelWorksheet.Cells(timeIndex, 2) = currentTime.Add(New TimeSpan(0, 30, 0)).ToString("hh\:mm")
             Next
 
-            ' Set the cell format for the time columns
+
+            excelWorksheet.Range("A2:A21").ColumnWidth = 10
+            excelWorksheet.Range("A2:A21").RowHeight = 20
+
+
+            excelWorksheet.Range("B2:B21").ColumnWidth = 10
+            excelWorksheet.Range("B2:B21").RowHeight = 20
+
+
+            excelWorksheet.Range("A2:B21").Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous
+            excelWorksheet.Range("A2:B21").Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin
+
             excelWorksheet.Range("A2:A21").NumberFormat = "h:mm AM/PM"
             excelWorksheet.Range("B2:B21").NumberFormat = "h:mm AM/PM"
 
-            ' Populate the second row with day names
+            excelWorksheet.Range("A2:A21").NumberFormat = "h:mm AM/PM"
+            excelWorksheet.Range("B2:B21").NumberFormat = "h:mm AM/PM"
+
             Dim days() As String = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}
             For dayIndex As Integer = 0 To days.Length - 1
                 excelWorksheet.Cells(1, dayIndex + 3) = days(dayIndex)
             Next
+            For dayIndex As Integer = 0 To days.Length - 1
+                Dim dayCell As Microsoft.Office.Interop.Excel.Range = excelWorksheet.Cells(1, dayIndex + 3)
+                dayCell.Value = days(dayIndex)
 
-            ' Iterate through the DataGridView rows and export the data
+
+                dayCell.Interior.Color = RGB(0, 0, 255)
+                dayCell.Font.Color = RGB(255, 255, 255)
+
+
+                dayCell.Columns.ColumnWidth = 15
+                dayCell.Rows.RowHeight = 20
+                dayCell.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter
+                dayCell.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter
+
+                excelWorksheet.Range("A1:I21").Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous
+                excelWorksheet.Range("A1:I21").Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin
+            Next
+
+
             For rowIndex As Integer = 0 To DataGridView2.Rows.Count - 1
                 Dim dayName As String = Convert.ToString(DataGridView2.Rows(rowIndex).Cells(6).Value)?.Trim()
                 Dim timeRange As String = Convert.ToString(DataGridView2.Rows(rowIndex).Cells(7).Value)
@@ -453,24 +490,24 @@ Public Class Schedule
                             Dim startHour As Integer = startTimeSpan.Hours
                             Dim startMinute As Integer = startTimeSpan.Minutes
 
-                            ' Adjust for PM hours
+
                             If startTimeString.Contains("PM") AndAlso startHour < 12 Then
                                 startHour += 12
                             End If
 
-                            ' Check if start time is earlier than 8:00 AM
+
                             If startHour < 8 Then
-                                startHour += 12  ' Add 12 hours to convert to PM time
+                                startHour += 12
                             End If
 
                             Dim startExcelRow As Integer = ((startHour - 8) * 2) + If(startMinute = 30, 1, 0) + 2
 
 
-                            ' Find the index of the dayName in the days array
+
                             Dim dayIndex As Integer = Array.IndexOf(days, dayName)
 
-                            If dayIndex <> -1 Then ' Check if dayName is found in the array
-                                Dim excelColumn As Integer = dayIndex + 3 ' Adjusted to start from column 3
+                            If dayIndex <> -1 Then
+                                Dim excelColumn As Integer = dayIndex + 3
 
                                 If startExcelRow < 2 Or startExcelRow > 21 Then
                                     MessageBox.Show($"Invalid start time calculation for row {rowIndex + 1}. Time: {startTimeString}")
@@ -479,21 +516,20 @@ Public Class Schedule
                                 Dim mergedCell As Microsoft.Office.Interop.Excel.Range = excelWorksheet.Range(excelWorksheet.Cells(startExcelRow, excelColumn), excelWorksheet.Cells(startExcelRow + 5, excelColumn))
                                 mergedCell.Merge()
 
-                                ' Set the value and format for the merged cell
+
                                 mergedCell.Value = $"{DataGridView2.Rows(rowIndex).Cells(2).Value} - {DataGridView2.Rows(rowIndex).Cells(8).Value}"
-                                mergedCell.WrapText = True  ' Enable text wrapping
-                                mergedCell.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter  ' Center align the text
-                                mergedCell.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter  ' Middle align the text
+                                mergedCell.WrapText = True
+                                mergedCell.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter
+                                mergedCell.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter
+
+                                mergedCell.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous
+                                mergedCell.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin
 
 
+                                mergedCell.Font.Size = 12
 
-                                ' Adjust the font size and cell size
-                                mergedCell.Font.Size = 12  ' Set the desired font size
-
-                                ' Set custom row height and column width for the merged cell range
-                                mergedCell.Rows.RowHeight = 20  ' Set the desired row height
-                                mergedCell.Columns.ColumnWidth = 15  ' Set the desired column width
-
+                                mergedCell.Rows.RowHeight = 20
+                                mergedCell.Columns.ColumnWidth = 15
 
 
                             Else
@@ -511,7 +547,7 @@ Public Class Schedule
         Catch ex As Exception
             MessageBox.Show($"An error occurred: {ex.Message}")
         Finally
-            ' Release Excel objects
+
             If excelWorksheet IsNot Nothing Then Marshal.ReleaseComObject(excelWorksheet)
             If excelWorkbook IsNot Nothing Then Marshal.ReleaseComObject(excelWorkbook)
             If excelApp IsNot Nothing Then Marshal.ReleaseComObject(excelApp)
@@ -523,6 +559,14 @@ Public Class Schedule
     End Sub
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
+    End Sub
+
+    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
 
     End Sub
 End Class
