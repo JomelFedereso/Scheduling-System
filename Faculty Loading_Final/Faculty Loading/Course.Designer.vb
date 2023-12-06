@@ -112,7 +112,7 @@ Partial Class course_form
         ' PictureBox1
         ' 
         PictureBox1.Image = My.Resources.Resources.pieces_blue_stationery
-        PictureBox1.Location = New Point(-5, -7)
+        PictureBox1.Location = New Point(11, -12)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(1942, 1000)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage

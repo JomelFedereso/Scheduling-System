@@ -541,6 +541,7 @@ Partial Class subject
         ' 
         Label20.AutoSize = True
         Label20.Font = New Font("Arial", 22.2F, FontStyle.Bold, GraphicsUnit.Point)
+        Label20.ForeColor = Color.Orange
         Label20.Location = New Point(834, 112)
         Label20.Name = "Label20"
         Label20.Size = New Size(55, 44)

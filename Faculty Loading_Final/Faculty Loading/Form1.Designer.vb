@@ -136,7 +136,7 @@ Partial Class Form1
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.BackColor = Color.Yellow
+        GroupBox1.BackColor = Color.Gold
         GroupBox1.Controls.Add(schedbtn)
         GroupBox1.Controls.Add(PictureBox1)
         GroupBox1.Controls.Add(Label1)
