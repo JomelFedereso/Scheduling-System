@@ -31,7 +31,9 @@ Partial Class Form2
         room_id = New DataGridViewTextBoxColumn()
         roomno = New DataGridViewTextBoxColumn()
         GroupBox1 = New GroupBox()
+        Label7 = New Label()
         Button2 = New Button()
+        PictureBox2 = New PictureBox()
         Button1 = New Button()
         Label2 = New Label()
         room = New TextBox()
@@ -40,6 +42,7 @@ Partial Class Form2
         PictureBox1 = New PictureBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -48,11 +51,13 @@ Partial Class Form2
         Label1.Anchor = AnchorStyles.Top
         Label1.AutoSize = True
         Label1.Font = New Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(206, 67)
+        Label1.ForeColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
+        Label1.Location = New Point(939, 152)
         Label1.Name = "Label1"
         Label1.Size = New Size(148, 51)
         Label1.TabIndex = 6
         Label1.Text = "Room" & vbCrLf
+        Label1.UseMnemonic = False
         ' 
         ' DataGridView1
         ' 
@@ -75,7 +80,7 @@ Partial Class Form2
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(974, 195)
+        DataGridView1.Location = New Point(939, 230)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 29
@@ -111,37 +116,64 @@ Partial Class Form2
         ' GroupBox1
         ' 
         GroupBox1.Anchor = AnchorStyles.Top
-        GroupBox1.BackColor = SystemColors.ActiveBorder
+        GroupBox1.BackColor = Color.Gold
+        GroupBox1.Controls.Add(Label7)
         GroupBox1.Controls.Add(Button2)
+        GroupBox1.Controls.Add(PictureBox2)
         GroupBox1.Controls.Add(Button1)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.Controls.Add(room)
-        GroupBox1.Location = New Point(493, 306)
+        GroupBox1.Location = New Point(-4, -7)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(380, 318)
+        GroupBox1.Size = New Size(395, 1062)
         GroupBox1.TabIndex = 5
         GroupBox1.TabStop = False
+        ' 
+        ' Label7
+        ' 
+        Label7.Anchor = AnchorStyles.None
+        Label7.AutoSize = True
+        Label7.BackColor = Color.Transparent
+        Label7.Font = New Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.Blue
+        Label7.ImageAlign = ContentAlignment.TopRight
+        Label7.Location = New Point(44, 293)
+        Label7.Margin = New Padding(6, 0, 6, 0)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(320, 92)
+        Label7.TabIndex = 22
+        Label7.Text = "Faculty Loading" & vbCrLf & "       System"
         ' 
         ' Button2
         ' 
         Button2.BackColor = Color.FromArgb(CByte(0), CByte(64), CByte(0))
-        Button2.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        Button2.Font = New Font("Arial Narrow", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(206, 185)
+        Button2.Location = New Point(213, 802)
         Button2.Name = "Button2"
         Button2.Size = New Size(111, 37)
         Button2.TabIndex = 5
         Button2.Text = "Edit"
         Button2.UseVisualStyleBackColor = False
         ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = My.Resources.Resources.cmilogo_removebg_preview__2_
+        PictureBox2.Location = New Point(73, 77)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(264, 198)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 21
+        PictureBox2.TabStop = False
+        ' 
         ' Button1
         ' 
         Button1.BackColor = Color.Blue
-        Button1.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        Button1.Font = New Font("Arial Narrow", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         Button1.ForeColor = Color.White
-        Button1.Location = New Point(73, 185)
+        Button1.Location = New Point(56, 802)
         Button1.Name = "Button1"
-        Button1.Size = New Size(94, 37)
+        Button1.Size = New Size(111, 37)
         Button1.TabIndex = 4
         Button1.Text = "Add"
         Button1.UseVisualStyleBackColor = False
@@ -149,27 +181,27 @@ Partial Class Form2
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(134, 62)
+        Label2.Font = New Font("Arial Narrow", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Location = New Point(56, 625)
         Label2.Name = "Label2"
-        Label2.Size = New Size(121, 31)
+        Label2.Size = New Size(123, 33)
         Label2.TabIndex = 2
         Label2.Text = "Room No."
         ' 
         ' room
         ' 
-        room.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        room.Location = New Point(73, 108)
+        room.Font = New Font("Arial Narrow", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        room.Location = New Point(56, 659)
         room.Name = "room"
-        room.Size = New Size(244, 38)
+        room.Size = New Size(268, 34)
         room.TabIndex = 0
         ' 
         ' backroombtn
         ' 
-        backroombtn.Font = New Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point)
+        backroombtn.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         backroombtn.Location = New Point(12, 12)
         backroombtn.Name = "backroombtn"
-        backroombtn.Size = New Size(87, 40)
+        backroombtn.Size = New Size(97, 35)
         backroombtn.TabIndex = 8
         backroombtn.Text = "Back"
         backroombtn.UseVisualStyleBackColor = True
@@ -182,8 +214,8 @@ Partial Class Form2
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.Image = My.Resources.Resources.hallway
-        PictureBox1.Location = New Point(12, -7)
+        PictureBox1.Image = My.Resources.Resources.cmicmicmi1
+        PictureBox1.Location = New Point(-4, -7)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(1942, 1063)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
@@ -207,6 +239,7 @@ Partial Class Form2
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -225,4 +258,6 @@ Partial Class Form2
     Friend WithEvents roomno As DataGridViewTextBoxColumn
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

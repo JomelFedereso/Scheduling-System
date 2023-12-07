@@ -24,9 +24,10 @@ Partial Class instructor
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(instructor))
         Label1 = New Label()
         GroupBox1 = New GroupBox()
+        Label7 = New Label()
+        PictureBox2 = New PictureBox()
         Dept = New TextBox()
         Label6 = New Label()
         Radfemale = New RadioButton()
@@ -49,6 +50,7 @@ Partial Class instructor
         Button3 = New Button()
         PictureBox1 = New PictureBox()
         GroupBox1.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -58,7 +60,8 @@ Partial Class instructor
         Label1.Anchor = AnchorStyles.Top
         Label1.AutoSize = True
         Label1.Font = New Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(206, 67)
+        Label1.ForeColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
+        Label1.Location = New Point(601, 177)
         Label1.Name = "Label1"
         Label1.Size = New Size(380, 51)
         Label1.TabIndex = 0
@@ -67,6 +70,9 @@ Partial Class instructor
         ' GroupBox1
         ' 
         GroupBox1.Anchor = AnchorStyles.Top
+        GroupBox1.BackColor = Color.Gold
+        GroupBox1.Controls.Add(Label7)
+        GroupBox1.Controls.Add(PictureBox2)
         GroupBox1.Controls.Add(Dept)
         GroupBox1.Controls.Add(Label6)
         GroupBox1.Controls.Add(Radfemale)
@@ -81,27 +87,51 @@ Partial Class instructor
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.ForeColor = SystemColors.ActiveCaptionText
-        GroupBox1.Location = New Point(248, 177)
+        GroupBox1.Location = New Point(2, -4)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(319, 609)
+        GroupBox1.Size = New Size(395, 1062)
         GroupBox1.TabIndex = 1
         GroupBox1.TabStop = False
-        GroupBox1.Text = "Instructor Details"
+        ' 
+        ' Label7
+        ' 
+        Label7.Anchor = AnchorStyles.None
+        Label7.AutoSize = True
+        Label7.BackColor = Color.Transparent
+        Label7.Font = New Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.Blue
+        Label7.ImageAlign = ContentAlignment.TopRight
+        Label7.Location = New Point(38, 284)
+        Label7.Margin = New Padding(6, 0, 6, 0)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(320, 92)
+        Label7.TabIndex = 20
+        Label7.Text = "Faculty Loading" & vbCrLf & "       System"
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = My.Resources.Resources.cmilogo_removebg_preview__2_
+        PictureBox2.Location = New Point(67, 68)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(264, 198)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 19
+        PictureBox2.TabStop = False
         ' 
         ' Dept
         ' 
-        Dept.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        Dept.Location = New Point(47, 344)
+        Dept.Font = New Font("Arial Narrow", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        Dept.Location = New Point(63, 776)
         Dept.Multiline = True
         Dept.Name = "Dept"
-        Dept.Size = New Size(218, 38)
+        Dept.Size = New Size(268, 38)
         Dept.TabIndex = 18
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point)
-        Label6.Location = New Point(47, 314)
+        Label6.Location = New Point(63, 746)
         Label6.Name = "Label6"
         Label6.Size = New Size(141, 27)
         Label6.TabIndex = 17
@@ -111,7 +141,7 @@ Partial Class instructor
         ' 
         Radfemale.AutoSize = True
         Radfemale.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        Radfemale.Location = New Point(157, 424)
+        Radfemale.Location = New Point(217, 858)
         Radfemale.Name = "Radfemale"
         Radfemale.Size = New Size(108, 35)
         Radfemale.TabIndex = 16
@@ -123,7 +153,7 @@ Partial Class instructor
         ' 
         Radmale.AutoSize = True
         Radmale.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        Radmale.Location = New Point(47, 424)
+        Radmale.Location = New Point(63, 858)
         Radmale.Name = "Radmale"
         Radmale.Size = New Size(86, 35)
         Radmale.TabIndex = 15
@@ -135,7 +165,7 @@ Partial Class instructor
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point)
-        Label5.Location = New Point(93, 394)
+        Label5.Location = New Point(67, 828)
         Label5.Name = "Label5"
         Label5.Size = New Size(94, 27)
         Label5.TabIndex = 14
@@ -146,7 +176,7 @@ Partial Class instructor
         Button2.BackColor = Color.FromArgb(CByte(0), CByte(64), CByte(0))
         Button2.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(170, 482)
+        Button2.Location = New Point(217, 944)
         Button2.Name = "Button2"
         Button2.Size = New Size(114, 38)
         Button2.TabIndex = 13
@@ -158,45 +188,45 @@ Partial Class instructor
         Button1.BackColor = Color.Blue
         Button1.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         Button1.ForeColor = SystemColors.ButtonHighlight
-        Button1.Location = New Point(39, 482)
+        Button1.Location = New Point(63, 944)
         Button1.Name = "Button1"
-        Button1.Size = New Size(94, 38)
+        Button1.Size = New Size(114, 38)
         Button1.TabIndex = 12
         Button1.Text = "Add"
         Button1.UseVisualStyleBackColor = False
         ' 
         ' middle_name
         ' 
-        middle_name.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        middle_name.Location = New Point(47, 254)
+        middle_name.Font = New Font("Arial Narrow", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        middle_name.Location = New Point(63, 675)
         middle_name.Multiline = True
         middle_name.Name = "middle_name"
-        middle_name.Size = New Size(218, 38)
+        middle_name.Size = New Size(268, 38)
         middle_name.TabIndex = 5
         ' 
         ' first_name
         ' 
-        first_name.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        first_name.Location = New Point(47, 161)
+        first_name.Font = New Font("Arial Narrow", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        first_name.Location = New Point(60, 582)
         first_name.Multiline = True
         first_name.Name = "first_name"
-        first_name.Size = New Size(218, 38)
+        first_name.Size = New Size(268, 38)
         first_name.TabIndex = 4
         ' 
         ' last_name
         ' 
-        last_name.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        last_name.Location = New Point(47, 70)
+        last_name.Font = New Font("Arial Narrow", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        last_name.Location = New Point(63, 475)
         last_name.Multiline = True
         last_name.Name = "last_name"
-        last_name.Size = New Size(218, 38)
+        last_name.Size = New Size(268, 38)
         last_name.TabIndex = 3
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
         Label4.Font = New Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.Location = New Point(47, 224)
+        Label4.Location = New Point(60, 645)
         Label4.Name = "Label4"
         Label4.Size = New Size(154, 27)
         Label4.TabIndex = 2
@@ -206,7 +236,7 @@ Partial Class instructor
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.Location = New Point(47, 131)
+        Label3.Location = New Point(60, 552)
         Label3.Name = "Label3"
         Label3.Size = New Size(131, 27)
         Label3.TabIndex = 1
@@ -216,7 +246,7 @@ Partial Class instructor
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(47, 40)
+        Label2.Location = New Point(63, 445)
         Label2.Name = "Label2"
         Label2.Size = New Size(128, 27)
         Label2.TabIndex = 0
@@ -244,7 +274,7 @@ Partial Class instructor
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(642, 201)
+        DataGridView1.Location = New Point(601, 231)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 29
@@ -291,10 +321,10 @@ Partial Class instructor
         ' 
         ' Button3
         ' 
-        Button3.Font = New Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point)
+        Button3.Font = New Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Button3.Location = New Point(12, 12)
         Button3.Name = "Button3"
-        Button3.Size = New Size(87, 40)
+        Button3.Size = New Size(97, 35)
         Button3.TabIndex = 3
         Button3.Text = "Back"
         Button3.UseVisualStyleBackColor = True
@@ -302,7 +332,7 @@ Partial Class instructor
         ' PictureBox1
         ' 
         PictureBox1.Anchor = AnchorStyles.None
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Image = My.Resources.Resources.cmicmicmi1
         PictureBox1.Location = New Point(-14, 3)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(1949, 1100)
@@ -326,6 +356,7 @@ Partial Class instructor
         WindowState = FormWindowState.Maximized
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -355,4 +386,6 @@ Partial Class instructor
     Friend WithEvents firstname As DataGridViewTextBoxColumn
     Friend WithEvents middlename As DataGridViewTextBoxColumn
     Friend WithEvents Department As DataGridViewTextBoxColumn
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label7 As Label
 End Class

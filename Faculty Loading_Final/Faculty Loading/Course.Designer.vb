@@ -37,9 +37,12 @@ Partial Class course_form
         Button1 = New Button()
         Button2 = New Button()
         GroupBox1 = New GroupBox()
+        Label7 = New Label()
+        PictureBox2 = New PictureBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -47,8 +50,8 @@ Partial Class course_form
         Label1.Anchor = AnchorStyles.Top
         Label1.AutoSize = True
         Label1.Font = New Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.ForeColor = Color.White
-        Label1.Location = New Point(206, 67)
+        Label1.ForeColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
+        Label1.Location = New Point(765, 301)
         Label1.Name = "Label1"
         Label1.Size = New Size(356, 51)
         Label1.TabIndex = 0
@@ -76,7 +79,7 @@ Partial Class course_form
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.Location = New Point(822, 286)
+        DataGridView1.Location = New Point(765, 378)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 29
@@ -101,20 +104,20 @@ Partial Class course_form
         ' 
         ' backcoursebtn
         ' 
-        backcoursebtn.Font = New Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point)
+        backcoursebtn.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         backcoursebtn.Location = New Point(11, 12)
         backcoursebtn.Name = "backcoursebtn"
-        backcoursebtn.Size = New Size(87, 40)
+        backcoursebtn.Size = New Size(97, 35)
         backcoursebtn.TabIndex = 3
         backcoursebtn.Text = "Back"
         backcoursebtn.UseVisualStyleBackColor = True
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.Image = My.Resources.Resources.pieces_blue_stationery
-        PictureBox1.Location = New Point(11, -12)
+        PictureBox1.Image = My.Resources.Resources.cmicmicmi1
+        PictureBox1.Location = New Point(-10, -12)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(1942, 1000)
+        PictureBox1.Size = New Size(1963, 1074)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 4
         PictureBox1.TabStop = False
@@ -122,47 +125,47 @@ Partial Class course_form
         ' course
         ' 
         course.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        course.Location = New Point(60, 85)
+        course.Location = New Point(63, 583)
         course.Name = "course"
-        course.Size = New Size(244, 38)
+        course.Size = New Size(268, 38)
         course.TabIndex = 0
         ' 
         ' course_description
         ' 
         course_description.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        course_description.Location = New Point(60, 245)
+        course_description.Location = New Point(63, 702)
         course_description.Name = "course_description"
-        course_description.Size = New Size(244, 38)
+        course_description.Size = New Size(268, 38)
         course_description.TabIndex = 1
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(60, 53)
+        Label2.Font = New Font("Arial Narrow", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Location = New Point(65, 549)
         Label2.Name = "Label2"
-        Label2.Size = New Size(87, 31)
+        Label2.Size = New Size(95, 33)
         Label2.TabIndex = 2
         Label2.Text = "Course"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.Location = New Point(71, 196)
+        Label3.Font = New Font("Arial Narrow", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Location = New Point(63, 668)
         Label3.Name = "Label3"
-        Label3.Size = New Size(138, 31)
+        Label3.Size = New Size(142, 33)
         Label3.TabIndex = 3
         Label3.Text = "Description"
         ' 
         ' Button1
         ' 
         Button1.BackColor = Color.Blue
-        Button1.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        Button1.Font = New Font("Arial Narrow", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         Button1.ForeColor = Color.White
-        Button1.Location = New Point(60, 354)
+        Button1.Location = New Point(63, 860)
         Button1.Name = "Button1"
-        Button1.Size = New Size(94, 44)
+        Button1.Size = New Size(114, 44)
         Button1.TabIndex = 4
         Button1.Text = "Add"
         Button1.UseVisualStyleBackColor = False
@@ -170,9 +173,9 @@ Partial Class course_form
         ' Button2
         ' 
         Button2.BackColor = Color.FromArgb(CByte(0), CByte(64), CByte(0))
-        Button2.Font = New Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        Button2.Font = New Font("Arial Narrow", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(201, 354)
+        Button2.Location = New Point(219, 860)
         Button2.Name = "Button2"
         Button2.Size = New Size(112, 44)
         Button2.TabIndex = 5
@@ -182,17 +185,45 @@ Partial Class course_form
         ' GroupBox1
         ' 
         GroupBox1.Anchor = AnchorStyles.Top
+        GroupBox1.BackColor = Color.Gold
+        GroupBox1.Controls.Add(Label7)
+        GroupBox1.Controls.Add(PictureBox2)
         GroupBox1.Controls.Add(course)
         GroupBox1.Controls.Add(Button2)
         GroupBox1.Controls.Add(Button1)
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.Controls.Add(course_description)
-        GroupBox1.Location = New Point(389, 201)
+        GroupBox1.Location = New Point(-10, -12)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(375, 518)
+        GroupBox1.Size = New Size(395, 1062)
         GroupBox1.TabIndex = 1
         GroupBox1.TabStop = False
+        ' 
+        ' Label7
+        ' 
+        Label7.Anchor = AnchorStyles.None
+        Label7.AutoSize = True
+        Label7.BackColor = Color.Transparent
+        Label7.Font = New Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.Blue
+        Label7.ImageAlign = ContentAlignment.TopRight
+        Label7.Location = New Point(38, 297)
+        Label7.Margin = New Padding(6, 0, 6, 0)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(320, 92)
+        Label7.TabIndex = 22
+        Label7.Text = "Faculty Loading" & vbCrLf & "       System"
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = My.Resources.Resources.cmilogo_removebg_preview__2_
+        PictureBox2.Location = New Point(67, 68)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(264, 198)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 21
+        PictureBox2.TabStop = False
         ' 
         ' course_form
         ' 
@@ -211,6 +242,7 @@ Partial Class course_form
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -230,4 +262,6 @@ Partial Class course_form
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents coursecode As DataGridViewTextBoxColumn
     Friend WithEvents coursedescription As DataGridViewTextBoxColumn
+    Friend WithEvents Label7 As Label
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

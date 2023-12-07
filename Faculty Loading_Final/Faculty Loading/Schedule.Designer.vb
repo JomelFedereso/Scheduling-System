@@ -75,13 +75,16 @@ Partial Class Schedule
         Label1 = New Label()
         ComboBox5 = New ComboBox()
         GroupBox2 = New GroupBox()
-        PictureBox1 = New PictureBox()
+        GroupBox1 = New GroupBox()
+        Label9 = New Label()
+        PictureBox2 = New PictureBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox2.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox1.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' DataGridView1
@@ -209,6 +212,7 @@ Partial Class Schedule
         ' 
         ' DataGridView2
         ' 
+        DataGridView2.AllowUserToAddRows = False
         DataGridView2.Anchor = AnchorStyles.None
         DataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         DataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter
@@ -375,7 +379,7 @@ Partial Class Schedule
         Button3.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         Button3.Location = New Point(12, 22)
         Button3.Name = "Button3"
-        Button3.Size = New Size(87, 40)
+        Button3.Size = New Size(97, 35)
         Button3.TabIndex = 14
         Button3.Text = "Back"
         Button3.UseVisualStyleBackColor = True
@@ -388,9 +392,8 @@ Partial Class Schedule
         Label4.ForeColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
         Label4.Location = New Point(58, 74)
         Label4.Name = "Label4"
-        Label4.Size = New Size(358, 51)
+        Label4.Size = New Size(0, 51)
         Label4.TabIndex = 18
-        Label4.Text = "Faculty Loading"
         ' 
         ' ComboBox2
         ' 
@@ -398,9 +401,9 @@ Partial Class Schedule
         ComboBox2.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         ComboBox2.FormattingEnabled = True
         ComboBox2.Items.AddRange(New Object() {"1ST SEMESTER", "2ND SEMESTER"})
-        ComboBox2.Location = New Point(10, 265)
+        ComboBox2.Location = New Point(10, 237)
         ComboBox2.Name = "ComboBox2"
-        ComboBox2.Size = New Size(287, 34)
+        ComboBox2.Size = New Size(268, 34)
         ComboBox2.TabIndex = 1
         ' 
         ' Label2
@@ -408,7 +411,7 @@ Partial Class Schedule
         Label2.Anchor = AnchorStyles.None
         Label2.AutoSize = True
         Label2.Font = New Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(12, 229)
+        Label2.Location = New Point(12, 201)
         Label2.Name = "Label2"
         Label2.Size = New Size(143, 33)
         Label2.TabIndex = 4
@@ -419,7 +422,7 @@ Partial Class Schedule
         label3.Anchor = AnchorStyles.None
         label3.AutoSize = True
         label3.Font = New Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
-        label3.Location = New Point(12, 343)
+        label3.Location = New Point(12, 293)
         label3.Name = "label3"
         label3.Size = New Size(175, 33)
         label3.TabIndex = 5
@@ -431,9 +434,9 @@ Partial Class Schedule
         ComboBox3.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         ComboBox3.FormattingEnabled = True
         ComboBox3.Items.AddRange(New Object() {"2023-2024", "2024-2025", "2025-2026", "2026-2027", "2027-2028", "2028-2029", "2029-2030", "2030-2031"})
-        ComboBox3.Location = New Point(10, 379)
+        ComboBox3.Location = New Point(10, 329)
         ComboBox3.Name = "ComboBox3"
-        ComboBox3.Size = New Size(287, 34)
+        ComboBox3.Size = New Size(268, 34)
         ComboBox3.TabIndex = 2
         ' 
         ' ComboBox4
@@ -442,9 +445,9 @@ Partial Class Schedule
         ComboBox4.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         ComboBox4.FormattingEnabled = True
         ComboBox4.Items.AddRange(New Object() {"JOBER REYES", "SUSANA TOLENTINO", "MARICRIS EUGENIO", "ALDRICH BERNARDO", "JERIC CASTILLO", "JOMEL FEDERESO", "ROBERT GALLARDO"})
-        ComboBox4.Location = New Point(10, 152)
+        ComboBox4.Location = New Point(10, 137)
         ComboBox4.Name = "ComboBox4"
-        ComboBox4.Size = New Size(287, 34)
+        ComboBox4.Size = New Size(268, 34)
         ComboBox4.TabIndex = 18
         ' 
         ' Label7
@@ -452,7 +455,7 @@ Partial Class Schedule
         Label7.Anchor = AnchorStyles.None
         Label7.AutoSize = True
         Label7.Font = New Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.Location = New Point(10, 116)
+        Label7.Location = New Point(10, 101)
         Label7.Name = "Label7"
         Label7.Size = New Size(111, 33)
         Label7.TabIndex = 19
@@ -463,7 +466,7 @@ Partial Class Schedule
         Label8.Anchor = AnchorStyles.None
         Label8.AutoSize = True
         Label8.Font = New Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
-        Label8.Location = New Point(12, 463)
+        Label8.Location = New Point(12, 389)
         Label8.Name = "Label8"
         Label8.Size = New Size(154, 33)
         Label8.TabIndex = 20
@@ -477,7 +480,7 @@ Partial Class Schedule
         ComboBox1.Items.AddRange(New Object() {"JOBER REYES", "SUSANA TOLENTINO", "MARICRIS EUGENIO", "ALDRICH BERNARDO", "JERIC CASTILLO", "JOMEL FEDERESO", "ROBERT GALLARDO"})
         ComboBox1.Location = New Point(10, 46)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(287, 34)
+        ComboBox1.Size = New Size(268, 34)
         ComboBox1.TabIndex = 0
         ' 
         ' Label1
@@ -497,14 +500,15 @@ Partial Class Schedule
         ComboBox5.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
         ComboBox5.FormattingEnabled = True
         ComboBox5.Items.AddRange(New Object() {"2023-2024", "2024-2025", "2025-2026", "2026-2027", "2027-2028", "2028-2029", "2029-2030", "2030-2031"})
-        ComboBox5.Location = New Point(10, 498)
+        ComboBox5.Location = New Point(10, 424)
         ComboBox5.Name = "ComboBox5"
-        ComboBox5.Size = New Size(287, 34)
+        ComboBox5.Size = New Size(268, 34)
         ComboBox5.TabIndex = 21
         ' 
         ' GroupBox2
         ' 
         GroupBox2.Anchor = AnchorStyles.None
+        GroupBox2.BackColor = Color.Gold
         GroupBox2.Controls.Add(ComboBox5)
         GroupBox2.Controls.Add(Label1)
         GroupBox2.Controls.Add(ComboBox1)
@@ -515,22 +519,48 @@ Partial Class Schedule
         GroupBox2.Controls.Add(label3)
         GroupBox2.Controls.Add(Label2)
         GroupBox2.Controls.Add(ComboBox2)
-        GroupBox2.Location = New Point(76, 331)
+        GroupBox2.Location = New Point(44, 422)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Size = New Size(307, 584)
         GroupBox2.TabIndex = 17
         GroupBox2.TabStop = False
         ' 
-        ' PictureBox1
+        ' GroupBox1
         ' 
-        PictureBox1.Anchor = AnchorStyles.None
-        PictureBox1.Image = My.Resources.Resources.cmilogo_removebg_preview__2_
-        PictureBox1.Location = New Point(113, 128)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(245, 197)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 19
-        PictureBox1.TabStop = False
+        GroupBox1.BackColor = Color.Gold
+        GroupBox1.Controls.Add(Label9)
+        GroupBox1.Controls.Add(PictureBox2)
+        GroupBox1.Controls.Add(GroupBox2)
+        GroupBox1.Location = New Point(0, -6)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Size = New Size(395, 1062)
+        GroupBox1.TabIndex = 21
+        GroupBox1.TabStop = False
+        ' 
+        ' Label9
+        ' 
+        Label9.Anchor = AnchorStyles.None
+        Label9.AutoSize = True
+        Label9.BackColor = Color.Transparent
+        Label9.Font = New Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.ForeColor = Color.Blue
+        Label9.ImageAlign = ContentAlignment.TopRight
+        Label9.Location = New Point(44, 293)
+        Label9.Margin = New Padding(6, 0, 6, 0)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(320, 92)
+        Label9.TabIndex = 23
+        Label9.Text = "Faculty Loading" & vbCrLf & "       System"
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = My.Resources.Resources.cmilogo_removebg_preview__2_
+        PictureBox2.Location = New Point(67, 67)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(264, 198)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 22
+        PictureBox2.TabStop = False
         ' 
         ' Schedule
         ' 
@@ -539,14 +569,13 @@ Partial Class Schedule
         ClientSize = New Size(1924, 935)
         Controls.Add(Label6)
         Controls.Add(Label4)
-        Controls.Add(PictureBox1)
-        Controls.Add(GroupBox2)
         Controls.Add(Button3)
         Controls.Add(Label5)
         Controls.Add(ExportToExcelButton)
         Controls.Add(savebtn)
         Controls.Add(DataGridView2)
         Controls.Add(DataGridView1)
+        Controls.Add(GroupBox1)
         Controls.Add(PictureBox3)
         Name = "Schedule"
         StartPosition = FormStartPosition.CenterScreen
@@ -558,7 +587,9 @@ Partial Class Schedule
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         GroupBox2.ResumeLayout(False)
         GroupBox2.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -594,7 +625,7 @@ Partial Class Schedule
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents ComboBox5 As ComboBox
     Friend WithEvents Label1 As Label
@@ -606,6 +637,7 @@ Partial Class Schedule
     Friend WithEvents label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Label9 As Label
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents PictureBox3 As PictureBox
 End Class

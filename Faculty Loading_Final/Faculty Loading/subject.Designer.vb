@@ -95,7 +95,7 @@ Partial Class subject
         Label5.AutoSize = True
         Label5.Font = New Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
-        Label5.Location = New Point(28, 73)
+        Label5.Location = New Point(611, 93)
         Label5.Name = "Label5"
         Label5.Size = New Size(387, 51)
         Label5.TabIndex = 3
@@ -544,9 +544,8 @@ Partial Class subject
         Label20.ForeColor = Color.Orange
         Label20.Location = New Point(834, 112)
         Label20.Name = "Label20"
-        Label20.Size = New Size(55, 44)
+        Label20.Size = New Size(0, 44)
         Label20.TabIndex = 8
-        Label20.Text = "---"
         ' 
         ' subject
         ' 
