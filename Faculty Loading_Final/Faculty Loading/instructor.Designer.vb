@@ -42,13 +42,14 @@ Partial Class instructor
         Label3 = New Label()
         Label2 = New Label()
         DataGridView1 = New DataGridView()
-        InstructorID = New DataGridViewTextBoxColumn()
+        Button3 = New Button()
+        PictureBox1 = New PictureBox()
+        instructor_id = New DataGridViewTextBoxColumn()
         lastname = New DataGridViewTextBoxColumn()
         firstname = New DataGridViewTextBoxColumn()
         middlename = New DataGridViewTextBoxColumn()
+        instructor_gen = New DataGridViewTextBoxColumn()
         Department = New DataGridViewTextBoxColumn()
-        Button3 = New Button()
-        PictureBox1 = New PictureBox()
         GroupBox1.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +102,7 @@ Partial Class instructor
         Label7.Font = New Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point)
         Label7.ForeColor = Color.Blue
         Label7.ImageAlign = ContentAlignment.TopRight
-        Label7.Location = New Point(38, 284)
+        Label7.Location = New Point(47, 285)
         Label7.Margin = New Padding(6, 0, 6, 0)
         Label7.Name = "Label7"
         Label7.Size = New Size(320, 92)
@@ -254,6 +255,7 @@ Partial Class instructor
         ' 
         ' DataGridView1
         ' 
+        DataGridView1.AllowUserToAddRows = False
         DataGridView1.Anchor = AnchorStyles.None
         DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -265,7 +267,7 @@ Partial Class instructor
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {InstructorID, lastname, firstname, middlename, Department})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {instructor_id, lastname, firstname, middlename, instructor_gen, Department})
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = SystemColors.Window
         DataGridViewCellStyle2.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
@@ -280,44 +282,6 @@ Partial Class instructor
         DataGridView1.RowTemplate.Height = 29
         DataGridView1.Size = New Size(1053, 609)
         DataGridView1.TabIndex = 2
-        ' 
-        ' InstructorID
-        ' 
-        InstructorID.Frozen = True
-        InstructorID.HeaderText = "Instructor ID"
-        InstructorID.MinimumWidth = 6
-        InstructorID.Name = "InstructorID"
-        InstructorID.Visible = False
-        InstructorID.Width = 150
-        ' 
-        ' lastname
-        ' 
-        lastname.Frozen = True
-        lastname.HeaderText = "Last Name"
-        lastname.MinimumWidth = 6
-        lastname.Name = "lastname"
-        lastname.Width = 250
-        ' 
-        ' firstname
-        ' 
-        firstname.HeaderText = "First Name"
-        firstname.MinimumWidth = 6
-        firstname.Name = "firstname"
-        firstname.Width = 250
-        ' 
-        ' middlename
-        ' 
-        middlename.HeaderText = "Middle Name"
-        middlename.MinimumWidth = 6
-        middlename.Name = "middlename"
-        middlename.Width = 250
-        ' 
-        ' Department
-        ' 
-        Department.HeaderText = "Department"
-        Department.MinimumWidth = 6
-        Department.Name = "Department"
-        Department.Width = 250
         ' 
         ' Button3
         ' 
@@ -339,6 +303,55 @@ Partial Class instructor
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 4
         PictureBox1.TabStop = False
+        ' 
+        ' instructor_id
+        ' 
+        instructor_id.Frozen = True
+        instructor_id.HeaderText = "Instructor ID"
+        instructor_id.MinimumWidth = 6
+        instructor_id.Name = "instructor_id"
+        instructor_id.Visible = False
+        instructor_id.Width = 150
+        ' 
+        ' lastname
+        ' 
+        lastname.Frozen = True
+        lastname.HeaderText = "Last Name"
+        lastname.MinimumWidth = 6
+        lastname.Name = "lastname"
+        lastname.Width = 250
+        ' 
+        ' firstname
+        ' 
+        firstname.Frozen = True
+        firstname.HeaderText = "First Name"
+        firstname.MinimumWidth = 6
+        firstname.Name = "firstname"
+        firstname.Width = 250
+        ' 
+        ' middlename
+        ' 
+        middlename.Frozen = True
+        middlename.HeaderText = "Middle Name"
+        middlename.MinimumWidth = 6
+        middlename.Name = "middlename"
+        middlename.Width = 250
+        ' 
+        ' instructor_gen
+        ' 
+        instructor_gen.Frozen = True
+        instructor_gen.HeaderText = "Gender"
+        instructor_gen.MinimumWidth = 6
+        instructor_gen.Name = "instructor_gen"
+        instructor_gen.Visible = False
+        instructor_gen.Width = 125
+        ' 
+        ' Department
+        ' 
+        Department.HeaderText = "Department"
+        Department.MinimumWidth = 6
+        Department.Name = "Department"
+        Department.Width = 250
         ' 
         ' instructor
         ' 
@@ -381,11 +394,12 @@ Partial Class instructor
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Dept As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents InstructorID As DataGridViewTextBoxColumn
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents instructor_id As DataGridViewTextBoxColumn
     Friend WithEvents lastname As DataGridViewTextBoxColumn
     Friend WithEvents firstname As DataGridViewTextBoxColumn
     Friend WithEvents middlename As DataGridViewTextBoxColumn
+    Friend WithEvents instructor_gen As DataGridViewTextBoxColumn
     Friend WithEvents Department As DataGridViewTextBoxColumn
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label7 As Label
 End Class

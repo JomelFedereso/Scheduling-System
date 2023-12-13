@@ -36,7 +36,7 @@ Public Class Form2
                 Using cmd As New MySqlCommand("SELECT * FROM room", con)
                     Dim dr As MySqlDataReader = cmd.ExecuteReader()
                     While dr.Read()
-                        DataGridView1.Rows.Add(Format(CBool(dr("option"))), dr("room_id"), dr("room"))
+                        DataGridView1.Rows.Add(dr("room_id"), dr("room"))
                     End While
                     dr.Close()
                 End Using
@@ -52,12 +52,26 @@ Public Class Form2
             myconnection.open()
             Try
                 Using con As MySqlConnection = myconnection.con
-                    Using cmd As New MySqlCommand()
-                        cmd.Connection = con
-                        cmd.CommandText = "INSERT INTO room (`room`) VALUES (@room)"
-                        cmd.Parameters.Clear()
-                        cmd.Parameters.AddWithValue("@room", room.Text)
-                        cmd.ExecuteNonQuery()
+
+                    Dim checkDuplicateQuery As String = "SELECT COUNT(*) FROM room WHERE room = @room"
+                    Using cmdCheckDuplicate As New MySqlCommand(checkDuplicateQuery, con)
+                        cmdCheckDuplicate.Parameters.AddWithValue("@room", room.Text)
+                        Dim duplicateCount As Integer = Convert.ToInt32(cmdCheckDuplicate.ExecuteScalar())
+
+                        If duplicateCount > 0 Then
+
+                            MsgBox("Room name already exists.")
+                            Return
+                        End If
+                    End Using
+
+
+                    Using cmdInsert As New MySqlCommand()
+                        cmdInsert.Connection = con
+                        cmdInsert.CommandText = "INSERT INTO room (`room`) VALUES (@room)"
+                        cmdInsert.Parameters.Clear()
+                        cmdInsert.Parameters.AddWithValue("@room", room.Text)
+                        cmdInsert.ExecuteNonQuery()
                     End Using
                 End Using
 
@@ -70,21 +84,35 @@ Public Class Form2
             MsgBox("Room name cannot be empty. Please provide a valid room.")
         End If
     End Sub
+
     Private Sub edit()
         If Not String.IsNullOrEmpty(room.Text) AndAlso selectedRoomID <> -1 Then
             myconnection.open()
             Try
                 Using con As MySqlConnection = myconnection.con
-                    Using cmd As New MySqlCommand()
-                        cmd.Connection = con
-                        cmd.CommandText = "UPDATE room SET room = @room WHERE room_id = @selectedRoomID"
-                        cmd.Parameters.Clear()
-                        cmd.Parameters.AddWithValue("@room", room.Text)
-                        cmd.Parameters.AddWithValue("@selectedRoomID", selectedRoomID)
-                        cmd.ExecuteNonQuery()
+
+                    Dim checkDuplicateQuery As String = "SELECT COUNT(*) FROM room WHERE room = @room AND room_id <> @selectedRoomID"
+                    Using cmdCheckDuplicate As New MySqlCommand(checkDuplicateQuery, con)
+                        cmdCheckDuplicate.Parameters.AddWithValue("@room", room.Text)
+                        cmdCheckDuplicate.Parameters.AddWithValue("@selectedRoomID", selectedRoomID)
+                        Dim duplicateCount As Integer = Convert.ToInt32(cmdCheckDuplicate.ExecuteScalar())
+
+                        If duplicateCount > 0 Then
+
+                            MsgBox("Room name already exists. Please choose a different name.")
+                            Return
+                        End If
+                    End Using
+
+                    Using cmdUpdate As New MySqlCommand()
+                        cmdUpdate.Connection = con
+                        cmdUpdate.CommandText = "UPDATE room SET room = @room WHERE room_id = @selectedRoomID"
+                        cmdUpdate.Parameters.Clear()
+                        cmdUpdate.Parameters.AddWithValue("@room", room.Text)
+                        cmdUpdate.Parameters.AddWithValue("@selectedRoomID", selectedRoomID)
+                        cmdUpdate.ExecuteNonQuery()
                     End Using
                 End Using
-
 
                 MsgBox("Successfully Updated!")
 
@@ -100,7 +128,6 @@ Public Class Form2
 
 
 
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         savee()
         LoadData()
@@ -112,41 +139,15 @@ Public Class Form2
 
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick, DataGridView1.CellContentDoubleClick, DataGridView1.CellDoubleClick
-        If e.ColumnIndex = DataGridView1.Columns("opt2").Index AndAlso e.RowIndex >= 0 Then
 
-            For Each row As DataGridViewRow In DataGridView1.Rows
-                row.Cells("opt2").Value = False
-            Next
-
-
-            Dim cell As DataGridViewCheckBoxCell = DataGridView1.Rows(e.RowIndex).Cells("opt2")
-            cell.Value = True
-
-
-            room.Text = DataGridView1.Rows(e.RowIndex).Cells("roomno").Value.ToString()
-
-            ' Assign the "room_id" value to selectedRoomID
-            Dim roomIDValue As Integer
-            If Integer.TryParse(DataGridView1.Rows(e.RowIndex).Cells("room_id").Value.ToString(), roomIDValue) Then
-                selectedRoomID = roomIDValue
-            Else
-
-
-                selectedRoomID = -1
-            End If
-        End If
-
-
-
-
-    End Sub
 
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         edit()
         LoadData()
+        room.Clear()
+
 
     End Sub
 
@@ -161,4 +162,27 @@ Public Class Form2
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+
+    End Sub
+
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+        If e.RowIndex >= 0 Then
+
+            Dim selectedRoomName As String = DataGridView1.Rows(e.RowIndex).Cells("roomno").Value?.ToString()
+
+
+
+            room.Text = selectedRoomName
+
+            Dim roomIDValue As Integer
+            If Integer.TryParse(DataGridView1.Rows(e.RowIndex).Cells("room_id").Value.ToString(), roomIDValue) Then
+                selectedRoomID = roomIDValue
+            Else
+                selectedRoomID = -1
+            End If
+        End If
+    End Sub
+
 End Class

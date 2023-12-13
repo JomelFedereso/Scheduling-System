@@ -3,6 +3,7 @@ Imports MySql.Data.MySqlClient
 Imports Org.BouncyCastle.Asn1
 
 Public Class subject
+    Private selectedSubjectID As Integer = -1
 
     Private myconnection As New connectiondb
     Dim dr As MySqlDataReader
@@ -48,7 +49,7 @@ Public Class subject
                 Using cmd As New MySqlCommand("SELECT * FROM subject ORDER BY subject_code", con)
                     Dim dr As MySqlDataReader = cmd.ExecuteReader()
                     While dr.Read()
-                        DataGridView1.Rows.Add(dr("subject_code"), dr("subject_description"), dr("units"), dr("section"), dr("day"), dr("time"), dr("room"), dr("course"), dr("semester"))
+                        DataGridView1.Rows.Add(dr("subject_id"), dr("subject_code"), dr("subject_description"), dr("units"), dr("section"), dr("day"), dr("time"), dr("room"), dr("course"), dr("semester"))
                     End While
                     dr.Close()
                 End Using
@@ -64,7 +65,7 @@ Public Class subject
             Using con As New MySqlConnection(myconnection.con.ConnectionString)
                 con.Open()
 
-                ' Check for conflicts before inserting
+
                 Dim conflictDetails As String = GetConflictDetails(con)
                 If String.IsNullOrEmpty(conflictDetails) Then
                     Using cmd As New MySqlCommand()
@@ -94,7 +95,7 @@ Public Class subject
         End Try
     End Sub
 
-    ' Function to check for conflicts and return the conflict details
+
     Private Function GetConflictDetails(con As MySqlConnection) As String
         Dim query As String = "SELECT * FROM subject WHERE day = @day AND time = @time AND room = @room"
         Using cmd As New MySqlCommand(query, con)
@@ -112,7 +113,7 @@ Public Class subject
                 End If
             End Using
         End Using
-        Return String.Empty ' No conflict
+        Return String.Empty
     End Function
 
 
@@ -246,7 +247,7 @@ Public Class subject
                 Dim text3 As String = ComboBox2.Text
                 Dim text4 As String = ComboBox4.Text
 
-                label20.Text = text4 & "-" & text1 & " " & text2 & " " & text3 & " Subject Offerings "
+                Label20.Text = text4 & "-" & text1 & " " & text2 & " " & text3 & " Subject Offerings "
 
                 Using con As MySqlConnection = myconnection.con
                     con.Open()
@@ -416,4 +417,10 @@ Public Class subject
     Private Sub PictureBox1_Click_1(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
+
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+
+    End Sub
+
+
 End Class

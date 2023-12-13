@@ -89,6 +89,7 @@ Partial Class Schedule
         ' 
         ' DataGridView1
         ' 
+        DataGridView1.AllowUserToAddRows = False
         DataGridView1.Anchor = AnchorStyles.None
         DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter

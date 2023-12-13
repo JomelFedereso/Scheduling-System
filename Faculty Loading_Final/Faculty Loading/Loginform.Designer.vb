@@ -22,7 +22,6 @@ Partial Class Loginform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Loginform))
         PictureBox1 = New PictureBox()
         Label1 = New Label()
         TextBox1 = New TextBox()
@@ -150,7 +149,7 @@ Partial Class Loginform
         ' 
         ' PictureBox3
         ' 
-        PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), Image)
+        PictureBox3.Image = My.Resources.Resources.png_clipart_abstract_background_material_color_trend_thumbnail_removebg_preview
         PictureBox3.Location = New Point(0, 0)
         PictureBox3.Name = "PictureBox3"
         PictureBox3.Size = New Size(567, 659)

@@ -26,8 +26,6 @@ Partial Class course_form
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         DataGridView1 = New DataGridView()
-        coursecode = New DataGridViewTextBoxColumn()
-        coursedescription = New DataGridViewTextBoxColumn()
         backcoursebtn = New Button()
         PictureBox1 = New PictureBox()
         course = New TextBox()
@@ -39,6 +37,9 @@ Partial Class course_form
         GroupBox1 = New GroupBox()
         Label7 = New Label()
         PictureBox2 = New PictureBox()
+        course_id = New DataGridViewTextBoxColumn()
+        coursecode = New DataGridViewTextBoxColumn()
+        coursedescription = New DataGridViewTextBoxColumn()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
@@ -59,6 +60,7 @@ Partial Class course_form
         ' 
         ' DataGridView1
         ' 
+        DataGridView1.AllowUserToAddRows = False
         DataGridView1.Anchor = AnchorStyles.None
         DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
@@ -70,7 +72,7 @@ Partial Class course_form
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {coursecode, coursedescription})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {course_id, coursecode, coursedescription})
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = SystemColors.Window
         DataGridViewCellStyle2.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
@@ -85,22 +87,6 @@ Partial Class course_form
         DataGridView1.RowTemplate.Height = 29
         DataGridView1.Size = New Size(773, 411)
         DataGridView1.TabIndex = 2
-        ' 
-        ' coursecode
-        ' 
-        coursecode.HeaderText = "Course"
-        coursecode.MinimumWidth = 6
-        coursecode.Name = "coursecode"
-        coursecode.ReadOnly = True
-        coursecode.Width = 220
-        ' 
-        ' coursedescription
-        ' 
-        coursedescription.HeaderText = "Description"
-        coursedescription.MinimumWidth = 6
-        coursedescription.Name = "coursedescription"
-        coursedescription.ReadOnly = True
-        coursedescription.Width = 500
         ' 
         ' backcoursebtn
         ' 
@@ -208,7 +194,7 @@ Partial Class course_form
         Label7.Font = New Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point)
         Label7.ForeColor = Color.Blue
         Label7.ImageAlign = ContentAlignment.TopRight
-        Label7.Location = New Point(38, 297)
+        Label7.Location = New Point(47, 295)
         Label7.Margin = New Padding(6, 0, 6, 0)
         Label7.Name = "Label7"
         Label7.Size = New Size(320, 92)
@@ -224,6 +210,30 @@ Partial Class course_form
         PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox2.TabIndex = 21
         PictureBox2.TabStop = False
+        ' 
+        ' course_id
+        ' 
+        course_id.HeaderText = "Course_ID"
+        course_id.MinimumWidth = 6
+        course_id.Name = "course_id"
+        course_id.Visible = False
+        course_id.Width = 125
+        ' 
+        ' coursecode
+        ' 
+        coursecode.HeaderText = "Course"
+        coursecode.MinimumWidth = 6
+        coursecode.Name = "coursecode"
+        coursecode.ReadOnly = True
+        coursecode.Width = 220
+        ' 
+        ' coursedescription
+        ' 
+        coursedescription.HeaderText = "Description"
+        coursedescription.MinimumWidth = 6
+        coursedescription.Name = "coursedescription"
+        coursedescription.ReadOnly = True
+        coursedescription.Width = 500
         ' 
         ' course_form
         ' 
@@ -260,8 +270,9 @@ Partial Class course_form
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents coursecode As DataGridViewTextBoxColumn
-    Friend WithEvents coursedescription As DataGridViewTextBoxColumn
     Friend WithEvents Label7 As Label
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents course_id As DataGridViewTextBoxColumn
+    Friend WithEvents coursecode As DataGridViewTextBoxColumn
+    Friend WithEvents coursedescription As DataGridViewTextBoxColumn
 End Class

@@ -27,7 +27,6 @@ Partial Class Form2
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label1 = New Label()
         DataGridView1 = New DataGridView()
-        opt2 = New DataGridViewCheckBoxColumn()
         room_id = New DataGridViewTextBoxColumn()
         roomno = New DataGridViewTextBoxColumn()
         GroupBox1 = New GroupBox()
@@ -61,6 +60,7 @@ Partial Class Form2
         ' 
         ' DataGridView1
         ' 
+        DataGridView1.AllowUserToAddRows = False
         DataGridView1.Anchor = AnchorStyles.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = SystemColors.Control
@@ -71,7 +71,7 @@ Partial Class Form2
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {opt2, room_id, roomno})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {room_id, roomno})
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = SystemColors.Window
         DataGridViewCellStyle2.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
@@ -84,18 +84,8 @@ Partial Class Form2
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 29
-        DataGridView1.Size = New Size(479, 586)
+        DataGridView1.Size = New Size(453, 586)
         DataGridView1.TabIndex = 7
-        ' 
-        ' opt2
-        ' 
-        opt2.HeaderText = "Options"
-        opt2.MinimumWidth = 6
-        opt2.Name = "opt2"
-        opt2.ReadOnly = True
-        opt2.Resizable = DataGridViewTriState.True
-        opt2.SortMode = DataGridViewColumnSortMode.Automatic
-        opt2.Width = 125
         ' 
         ' room_id
         ' 
@@ -111,7 +101,7 @@ Partial Class Form2
         roomno.MinimumWidth = 6
         roomno.Name = "roomno"
         roomno.ReadOnly = True
-        roomno.Width = 300
+        roomno.Width = 400
         ' 
         ' GroupBox1
         ' 
@@ -253,11 +243,10 @@ Partial Class Form2
     Friend WithEvents Label2 As Label
     Friend WithEvents room As TextBox
     Friend WithEvents backroombtn As Button
-    Friend WithEvents opt2 As DataGridViewCheckBoxColumn
-    Friend WithEvents room_id As DataGridViewTextBoxColumn
-    Friend WithEvents roomno As DataGridViewTextBoxColumn
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label7 As Label
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents room_id As DataGridViewTextBoxColumn
+    Friend WithEvents roomno As DataGridViewTextBoxColumn
 End Class

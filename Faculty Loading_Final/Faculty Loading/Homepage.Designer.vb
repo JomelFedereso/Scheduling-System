@@ -22,7 +22,6 @@ Partial Class Homepage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Homepage))
         PictureBox1 = New PictureBox()
         Facultyloading = New Label()
         btnlogin = New Button()
@@ -107,7 +106,7 @@ Partial Class Homepage
         ' PictureBox3
         ' 
         PictureBox3.Anchor = AnchorStyles.None
-        PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), Image)
+        PictureBox3.Image = My.Resources.Resources.png_clipart_abstract_background_material_color_trend_thumbnail_removebg_preview
         PictureBox3.Location = New Point(-9, 0)
         PictureBox3.Name = "PictureBox3"
         PictureBox3.Size = New Size(594, 659)

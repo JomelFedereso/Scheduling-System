@@ -132,3 +132,4 @@ C:\For School\Faculty Loading\Faculty Loading_Final\Faculty Loading\obj\Debug\ne
 C:\For School\Faculty Loading\Faculty Loading_Final\Faculty Loading\obj\Debug\net6.0-windows\ref\Faculty Loading.dll
 C:\For School\Faculty Loading\Faculty Loading_Final\Faculty Loading\obj\Debug\net6.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
 C:\For School\Faculty Loading\Faculty Loading_Final\Faculty Loading\obj\Debug\net6.0-windows\Faculty Loading.vbproj.ResolveComReference.cache
+C:\For School\Faculty Loading\Faculty Loading_Final\Faculty Loading\obj\Debug\net6.0-windows\Faculty_Loading.Form3.resources
