@@ -10,6 +10,9 @@
     <Compile Update="Form2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Schedule.vb">
       <SubType>Form</SubType>
     </Compile>

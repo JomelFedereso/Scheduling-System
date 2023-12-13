@@ -37,15 +37,6 @@ Partial Class subject
         backsubjectbtn = New Button()
         Label5 = New Label()
         DataGridView1 = New DataGridView()
-        subcodes = New DataGridViewTextBoxColumn()
-        subdescription = New DataGridViewTextBoxColumn()
-        unit = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewTextBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
-        Column6 = New DataGridViewTextBoxColumn()
         label12 = New Label()
         Label2 = New Label()
         textbox = New TextBox()
@@ -75,6 +66,16 @@ Partial Class subject
         GroupBox1 = New GroupBox()
         PictureBox1 = New PictureBox()
         Label20 = New Label()
+        subject_id = New DataGridViewTextBoxColumn()
+        subcodes = New DataGridViewTextBoxColumn()
+        subdescription = New DataGridViewTextBoxColumn()
+        unit = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        Column1 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
+        Column6 = New DataGridViewTextBoxColumn()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -82,10 +83,10 @@ Partial Class subject
         ' 
         ' backsubjectbtn
         ' 
-        backsubjectbtn.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        backsubjectbtn.Location = New Point(11, 12)
+        backsubjectbtn.Font = New Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        backsubjectbtn.Location = New Point(28, 12)
         backsubjectbtn.Name = "backsubjectbtn"
-        backsubjectbtn.Size = New Size(79, 29)
+        backsubjectbtn.Size = New Size(97, 35)
         backsubjectbtn.TabIndex = 0
         backsubjectbtn.Text = "Back"
         backsubjectbtn.UseVisualStyleBackColor = True
@@ -94,7 +95,8 @@ Partial Class subject
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point)
-        Label5.Location = New Point(206, 67)
+        Label5.ForeColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
+        Label5.Location = New Point(92, 105)
         Label5.Name = "Label5"
         Label5.Size = New Size(387, 51)
         Label5.TabIndex = 3
@@ -116,7 +118,7 @@ Partial Class subject
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {subcodes, subdescription, unit, Column4, Column1, Column2, Column3, Column5, Column6})
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {subject_id, subcodes, subdescription, unit, Column4, Column1, Column2, Column3, Column5, Column6})
         DataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle11.BackColor = SystemColors.Window
         DataGridViewCellStyle11.Font = New Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
@@ -137,87 +139,8 @@ Partial Class subject
         DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 29
-        DataGridView1.Size = New Size(1289, 772)
+        DataGridView1.Size = New Size(1274, 772)
         DataGridView1.TabIndex = 2
-        ' 
-        ' subcodes
-        ' 
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
-        subcodes.DefaultCellStyle = DataGridViewCellStyle3
-        subcodes.HeaderText = "Subject Code"
-        subcodes.MinimumWidth = 6
-        subcodes.Name = "subcodes"
-        subcodes.Width = 150
-        ' 
-        ' subdescription
-        ' 
-        subdescription.HeaderText = "Subject Description"
-        subdescription.MinimumWidth = 6
-        subdescription.Name = "subdescription"
-        subdescription.Width = 250
-        ' 
-        ' unit
-        ' 
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        unit.DefaultCellStyle = DataGridViewCellStyle4
-        unit.HeaderText = "Units"
-        unit.MinimumWidth = 6
-        unit.Name = "unit"
-        unit.Width = 50
-        ' 
-        ' Column4
-        ' 
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
-        Column4.DefaultCellStyle = DataGridViewCellStyle5
-        Column4.HeaderText = "Section"
-        Column4.MinimumWidth = 6
-        Column4.Name = "Column4"
-        Column4.Width = 70
-        ' 
-        ' Column1
-        ' 
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
-        Column1.DefaultCellStyle = DataGridViewCellStyle6
-        Column1.HeaderText = "Day"
-        Column1.MinimumWidth = 6
-        Column1.Name = "Column1"
-        Column1.Width = 125
-        ' 
-        ' Column2
-        ' 
-        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
-        Column2.DefaultCellStyle = DataGridViewCellStyle7
-        Column2.HeaderText = "Time"
-        Column2.MinimumWidth = 6
-        Column2.Name = "Column2"
-        Column2.Width = 150
-        ' 
-        ' Column3
-        ' 
-        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter
-        Column3.DefaultCellStyle = DataGridViewCellStyle8
-        Column3.HeaderText = "Room"
-        Column3.MinimumWidth = 6
-        Column3.Name = "Column3"
-        Column3.Width = 125
-        ' 
-        ' Column5
-        ' 
-        DataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter
-        Column5.DefaultCellStyle = DataGridViewCellStyle9
-        Column5.HeaderText = "Course"
-        Column5.MinimumWidth = 6
-        Column5.Name = "Column5"
-        Column5.Width = 125
-        ' 
-        ' Column6
-        ' 
-        DataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter
-        Column6.DefaultCellStyle = DataGridViewCellStyle10
-        Column6.HeaderText = "Semester"
-        Column6.MinimumWidth = 6
-        Column6.Name = "Column6"
-        Column6.Width = 175
         ' 
         ' label12
         ' 
@@ -528,10 +451,10 @@ Partial Class subject
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.Image = My.Resources.Resources.cmi_building
+        PictureBox1.Image = My.Resources.Resources.cmicmicmi1
         PictureBox1.Location = New Point(0, 0)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(2000, 1060)
+        PictureBox1.Size = New Size(2000, 1100)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 7
         PictureBox1.TabStop = False
@@ -540,11 +463,98 @@ Partial Class subject
         ' 
         Label20.AutoSize = True
         Label20.Font = New Font("Arial", 22.2F, FontStyle.Bold, GraphicsUnit.Point)
+        Label20.ForeColor = Color.Orange
         Label20.Location = New Point(834, 112)
         Label20.Name = "Label20"
-        Label20.Size = New Size(55, 44)
+        Label20.Size = New Size(0, 44)
         Label20.TabIndex = 8
-        Label20.Text = "---"
+        ' 
+        ' subject_id
+        ' 
+        subject_id.HeaderText = "SubjectID"
+        subject_id.MinimumWidth = 6
+        subject_id.Name = "subject_id"
+        subject_id.Visible = False
+        subject_id.Width = 125
+        ' 
+        ' subcodes
+        ' 
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        subcodes.DefaultCellStyle = DataGridViewCellStyle3
+        subcodes.HeaderText = "Subject Code"
+        subcodes.MinimumWidth = 6
+        subcodes.Name = "subcodes"
+        subcodes.Width = 150
+        ' 
+        ' subdescription
+        ' 
+        subdescription.HeaderText = "Subject Description"
+        subdescription.MinimumWidth = 6
+        subdescription.Name = "subdescription"
+        subdescription.Width = 250
+        ' 
+        ' unit
+        ' 
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        unit.DefaultCellStyle = DataGridViewCellStyle4
+        unit.HeaderText = "Units"
+        unit.MinimumWidth = 6
+        unit.Name = "unit"
+        unit.Width = 50
+        ' 
+        ' Column4
+        ' 
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Column4.DefaultCellStyle = DataGridViewCellStyle5
+        Column4.HeaderText = "Section"
+        Column4.MinimumWidth = 6
+        Column4.Name = "Column4"
+        Column4.Width = 70
+        ' 
+        ' Column1
+        ' 
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Column1.DefaultCellStyle = DataGridViewCellStyle6
+        Column1.HeaderText = "Day"
+        Column1.MinimumWidth = 6
+        Column1.Name = "Column1"
+        Column1.Width = 125
+        ' 
+        ' Column2
+        ' 
+        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Column2.DefaultCellStyle = DataGridViewCellStyle7
+        Column2.HeaderText = "Time"
+        Column2.MinimumWidth = 6
+        Column2.Name = "Column2"
+        Column2.Width = 150
+        ' 
+        ' Column3
+        ' 
+        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Column3.DefaultCellStyle = DataGridViewCellStyle8
+        Column3.HeaderText = "Room"
+        Column3.MinimumWidth = 6
+        Column3.Name = "Column3"
+        Column3.Width = 125
+        ' 
+        ' Column5
+        ' 
+        DataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Column5.DefaultCellStyle = DataGridViewCellStyle9
+        Column5.HeaderText = "Course"
+        Column5.MinimumWidth = 6
+        Column5.Name = "Column5"
+        Column5.Width = 125
+        ' 
+        ' Column6
+        ' 
+        DataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Column6.DefaultCellStyle = DataGridViewCellStyle10
+        Column6.HeaderText = "Semester"
+        Column6.MinimumWidth = 6
+        Column6.Name = "Column6"
+        Column6.Width = 175
         ' 
         ' subject
         ' 
@@ -601,6 +611,10 @@ Partial Class subject
     Friend WithEvents Label12332 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents subject_id As DataGridViewTextBoxColumn
     Friend WithEvents subcodes As DataGridViewTextBoxColumn
     Friend WithEvents subdescription As DataGridViewTextBoxColumn
     Friend WithEvents unit As DataGridViewTextBoxColumn
@@ -610,7 +624,4 @@ Partial Class subject
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label20 As Label
 End Class

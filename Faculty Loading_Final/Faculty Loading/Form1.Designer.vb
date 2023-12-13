@@ -136,7 +136,7 @@ Partial Class Form1
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.BackColor = Color.Yellow
+        GroupBox1.BackColor = Color.Gold
         GroupBox1.Controls.Add(schedbtn)
         GroupBox1.Controls.Add(PictureBox1)
         GroupBox1.Controls.Add(Label1)
@@ -165,7 +165,7 @@ Partial Class Form1
         AutoScaleDimensions = New SizeF(15F, 37F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Control
-        ClientSize = New Size(1182, 1055)
+        ClientSize = New Size(1445, 1055)
         Controls.Add(GroupBox1)
         Controls.Add(PictureBox2)
         Font = New Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point)

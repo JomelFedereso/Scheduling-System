@@ -1,4 +1,8 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Text
+Imports MySql.Data.MySqlClient
+Imports System.Security.Cryptography
+
+
 Public Class Loginform
 
     Private myconnection As New connectiondb
@@ -9,9 +13,23 @@ Public Class Loginform
         PictureBox1.BackColor = Color.Transparent
     End Sub
 
+    Private Function HashPassword(password As String) As String
+        Using sha256 As SHA256 = sha256.Create()
+            Dim hashedBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(password))
+            Dim builder As New StringBuilder()
+
+            For i As Integer = 0 To hashedBytes.Length - 1
+                builder.Append(hashedBytes(i).ToString("x2"))
+            Next
+
+            Return builder.ToString()
+        End Using
+    End Function
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles loginbtn.Click
         Dim username As String = TextBox1.Text
-        Dim password As String = TextBox2.Text
+        Dim enteredPassword As String = TextBox2.Text
+        Dim hashedPassword As String = HashPassword(enteredPassword)
 
         Dim query As String = "SELECT * FROM admin WHERE username = @username AND password = @password"
 
@@ -20,8 +38,7 @@ Public Class Loginform
         Using command As New MySqlCommand(query, myconnection.con)
 
             command.Parameters.AddWithValue("@username", username)
-            command.Parameters.AddWithValue("@password", password)
-
+            command.Parameters.AddWithValue("@password", hashedPassword)
             conadApter = New MySqlDataAdapter(command)
 
             dataTable = New DataTable
@@ -35,6 +52,8 @@ Public Class Loginform
                 MessageBox.Show("Username and/or password are invalid")
             End If
         End Using
+
+        myconnection.Close()
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged

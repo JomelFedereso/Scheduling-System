@@ -22,7 +22,6 @@ Partial Class Loginform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Loginform))
         PictureBox1 = New PictureBox()
         Label1 = New Label()
         TextBox1 = New TextBox()
@@ -127,7 +126,7 @@ Partial Class Loginform
         GroupBox1.Controls.Add(PictureBox1)
         GroupBox1.Controls.Add(GroupBox2)
         GroupBox1.Controls.Add(PictureBox3)
-        GroupBox1.Location = New Point(81, 50)
+        GroupBox1.Location = New Point(452, 181)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(902, 659)
         GroupBox1.TabIndex = 8
@@ -150,7 +149,7 @@ Partial Class Loginform
         ' 
         ' PictureBox3
         ' 
-        PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), Image)
+        PictureBox3.Image = My.Resources.Resources.png_clipart_abstract_background_material_color_trend_thumbnail_removebg_preview
         PictureBox3.Location = New Point(0, 0)
         PictureBox3.Name = "PictureBox3"
         PictureBox3.Size = New Size(567, 659)
@@ -163,7 +162,7 @@ Partial Class Loginform
         AcceptButton = loginbtn
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1182, 753)
+        ClientSize = New Size(1924, 1014)
         Controls.Add(GroupBox1)
         Controls.Add(PictureBox2)
         Name = "Loginform"

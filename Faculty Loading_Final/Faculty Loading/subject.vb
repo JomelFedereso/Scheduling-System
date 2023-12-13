@@ -3,6 +3,7 @@ Imports MySql.Data.MySqlClient
 Imports Org.BouncyCastle.Asn1
 
 Public Class subject
+    Private selectedSubjectID As Integer = -1
 
     Private myconnection As New connectiondb
     Dim dr As MySqlDataReader
@@ -24,6 +25,15 @@ Public Class subject
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue
 
+        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox4.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox5.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox6.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox7.DropDownStyle = ComboBoxStyle.DropDownList
+        combounit.DropDownStyle = ComboBoxStyle.DropDownList
+        xection.DropDownStyle = ComboBoxStyle.DropDownList
 
 
     End Sub
@@ -39,7 +49,7 @@ Public Class subject
                 Using cmd As New MySqlCommand("SELECT * FROM subject ORDER BY subject_code", con)
                     Dim dr As MySqlDataReader = cmd.ExecuteReader()
                     While dr.Read()
-                        DataGridView1.Rows.Add(dr("subject_code"), dr("subject_description"), dr("units"), dr("section"), dr("day"), dr("time"), dr("room"), dr("course"), dr("semester"))
+                        DataGridView1.Rows.Add(dr("subject_id"), dr("subject_code"), dr("subject_description"), dr("units"), dr("section"), dr("day"), dr("time"), dr("room"), dr("course"), dr("semester"))
                     End While
                     dr.Close()
                 End Using
@@ -51,37 +61,63 @@ Public Class subject
         End Try
     End Sub
     Private Sub savee()
-        myconnection.open()
         Try
-            Using con As MySqlConnection = myconnection.con
-                Using cmd As New MySqlCommand()
-                    cmd.Connection = con
-                    cmd.CommandText = "INSERT INTO subject (`course`,`subject_code`,`subject_description` , `units`,`academicYr`,`yrLvl`,`semester`,`section`,`day`, `time`,`room`) VALUES (@ComboBox1, @combobox,@textbox,@combounit,@ComboBox2,@ComboBox4,@ComboBox3,@xection, @ComboBox7,@ComboBox6,@ComboBox5)"
-                    cmd.Parameters.Clear()
-                    cmd.Parameters.AddWithValue("@ComboBox1", ComboBox1.Text)
-                    cmd.Parameters.AddWithValue("@combobox", combobox.Text)
-                    cmd.Parameters.AddWithValue("@textbox", textbox.Text)
-                    cmd.Parameters.AddWithValue("@combounit", combounit.Text)
-                    cmd.Parameters.AddWithValue("@ComboBox2", ComboBox2.Text)
-                    cmd.Parameters.AddWithValue("@ComboBox4", ComboBox4.Text)
-                    cmd.Parameters.AddWithValue("@ComboBox3", ComboBox3.Text)
-                    cmd.Parameters.AddWithValue("@ComboBox7", ComboBox7.Text)
-                    cmd.Parameters.AddWithValue("@ComboBox6", ComboBox6.Text)
-                    cmd.Parameters.AddWithValue("@ComboBox5", ComboBox5.Text)
-                    cmd.Parameters.AddWithValue("@xection", xection.Text)
-                    cmd.ExecuteNonQuery()
+            Using con As New MySqlConnection(myconnection.con.ConnectionString)
+                con.Open()
 
-                End Using
+
+                Dim conflictDetails As String = GetConflictDetails(con)
+                If String.IsNullOrEmpty(conflictDetails) Then
+                    Using cmd As New MySqlCommand()
+                        cmd.Connection = con
+                        cmd.CommandText = "INSERT INTO subject (`course`,`subject_code`,`subject_description` , `units`,`academicYr`,`yrLvl`,`semester`,`section`,`day`, `time`,`room`) VALUES (@ComboBox1, @combobox,@textbox,@combounit,@ComboBox2,@ComboBox4,@ComboBox3,@xection, @ComboBox7,@ComboBox6,@ComboBox5)"
+                        cmd.Parameters.Clear()
+                        cmd.Parameters.AddWithValue("@ComboBox1", ComboBox1.Text)
+                        cmd.Parameters.AddWithValue("@combobox", combobox.Text)
+                        cmd.Parameters.AddWithValue("@textbox", textbox.Text)
+                        cmd.Parameters.AddWithValue("@combounit", combounit.Text)
+                        cmd.Parameters.AddWithValue("@ComboBox2", ComboBox2.Text)
+                        cmd.Parameters.AddWithValue("@ComboBox4", ComboBox4.Text)
+                        cmd.Parameters.AddWithValue("@ComboBox3", ComboBox3.Text)
+                        cmd.Parameters.AddWithValue("@ComboBox7", ComboBox7.Text)
+                        cmd.Parameters.AddWithValue("@ComboBox6", ComboBox6.Text)
+                        cmd.Parameters.AddWithValue("@ComboBox5", ComboBox5.Text)
+                        cmd.Parameters.AddWithValue("@xection", xection.Text)
+                        cmd.ExecuteNonQuery()
+                        MsgBox("Successfully Added!")
+                    End Using
+                Else
+                    MsgBox($"Conflict detected. Your subject conflicts with {conflictDetails}. Please choose a different day, time, or room.")
+                End If
             End Using
-
-            MsgBox("Successfully Added!")
-
-            myconnection.Close()
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
     End Sub
+
+
+    Private Function GetConflictDetails(con As MySqlConnection) As String
+        Dim query As String = "SELECT * FROM subject WHERE day = @day AND time = @time AND room = @room"
+        Using cmd As New MySqlCommand(query, con)
+            cmd.Parameters.AddWithValue("@day", ComboBox7.Text)
+            cmd.Parameters.AddWithValue("@time", ComboBox6.Text)
+            cmd.Parameters.AddWithValue("@room", ComboBox5.Text)
+            Using reader As MySqlDataReader = cmd.ExecuteReader()
+                If reader.HasRows Then
+                    reader.Read()
+                    Dim subjectCode As String = reader("subject_code").ToString()
+                    Dim subjectDescription As String = reader("subject_description").ToString()
+                    Dim time As String = reader("time").ToString()
+                    Dim room As String = reader("room").ToString()
+                    Return $"subject code {subjectCode} {subjectDescription} time {time} room {room}"
+                End If
+            End Using
+        End Using
+        Return String.Empty
+    End Function
+
+
+
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         savee()
@@ -211,7 +247,7 @@ Public Class subject
                 Dim text3 As String = ComboBox2.Text
                 Dim text4 As String = ComboBox4.Text
 
-                label20.Text = text4 & "-" & text1 & " " & text2 & " " & text3 & " Subject Offerings "
+                Label20.Text = text4 & "-" & text1 & " " & text2 & " " & text3 & " Subject Offerings "
 
                 Using con As MySqlConnection = myconnection.con
                     con.Open()
@@ -377,4 +413,14 @@ Public Class subject
     Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
 
     End Sub
+
+    Private Sub PictureBox1_Click_1(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
+    End Sub
+
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+
+    End Sub
+
+
 End Class
